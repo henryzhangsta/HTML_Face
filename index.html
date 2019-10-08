@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="MobiledgeX code samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+    <base target="_blank">
+
+    <title>MobiledgeX Face Demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
+    
+   <style>
+    
+        html, body, .viewport {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            overflow: hidden;
+            background-color: aqua;
+        }
+        body {
+            font-family: 'Thasadith', sans-serif;
+            font-size: 15px;
+            overflow: hidden;
+        }
+        video {
+            object-fit: fill;
+        }
+        #facevideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 10%; 
+            min-height: 10%;
+            z-index: 9999;
+        }
+        #drawlayer {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 25%; 
+            min-height: 25%;
+            z-index: 9998;
+            background-color: aquamarine;
+        }  
+        #imgcaplayer {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 25%; 
+            min-height: 25%;
+            z-index: 9997;
+            background-color: red;
+        }  
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>MobiledgeX Facial Compute Off-load</h1>
+        <button id="myButtonId">Take snapshot</button><BR>
+        <video id="facevideo" playsinline autoplay></video><BR>
+        <!--<div style="position: relative;">
+            <canvas id="layer1" width="100" height="100" 
+                style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+        </div>-->
+        <canvas id="imgcaplayer"></canvas>
+        <canvas id="drawlayer"></canvas>
+        <form></form>
+        <p id="block"></p>
+        <BR>
+        <BR>
+
+        <a href="https://github.com/skydvr01/HTML5_Edge_Face_onClick"
+        title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
+        <!-------Learnings -----------------------
+
+            Canvas z-index solution: https://stackoverflow.com/questions/13388537/html5-video-ignoring-z-index
+
+
+        -->
+    </center> 
+
+
+<script src="main.js" async></script>
+
+</body>
+</html>
