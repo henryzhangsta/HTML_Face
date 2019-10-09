@@ -11,7 +11,7 @@
 
     <title>MobiledgeX Face Demo</title>
     <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
-    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
    <style>
     
         html, body, .viewport {
@@ -69,7 +69,10 @@
         </div>-->
         <canvas id="imgcaplayer"></canvas>
         <canvas id="drawlayer"></canvas>
-        <form></form>
+        <form id="myAwesomeForm" method="post" action="/php-code-that-handles-fileupload.php">
+            <input type="text" id="filename" name="filename" /> <!-- Filename -->
+            <input type="submit" id="submitButton" name="submitButton" /> <!-- Submit -->
+        </form>
         <p id="block"></p>
         <BR>
         <BR>
