@@ -5,7 +5,16 @@ const upload = multer();
 const app = express();
 const port = 8080;
 
+const staticHandler = (filename) => {
+    return (req, res) => {
+        res.sendfile(filename, {root: __dirname})
+    }
+}
+
 app.use(express.urlencoded({extended: true}));
+app.get('/', staticHandler('index.html'))
+app.get('/index.html', staticHandler('index.html'))
+app.get('/main.js', staticHandler('main.js'))
 app.post('/facebox/check/', upload.none(), (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
 
