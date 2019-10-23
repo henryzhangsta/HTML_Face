@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
    <style>
-    
         html, body, .viewport {
             width: 100%;
             height: 100%;
@@ -21,74 +20,74 @@
             overflow: hidden;
             background-color: aqua;
         }
+
         body {
             font-family: 'Thasadith', sans-serif;
             font-size: 15px;
             overflow: hidden;
         }
+
         video {
             object-fit: fill;
         }
-        #facevideo {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 10%; 
-            min-height: 10%;
-            z-index: 9999;
+
+        .container {
+            max-width: 1200px;
+            height: 100%;
+            margin: 0 auto;
         }
-        #drawlayer {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 25%; 
-            min-height: 25%;
-            z-index: 9998;
-            background-color: aquamarine;
-        }  
-        #imgcaplayer {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 25%; 
-            min-height: 25%;
-            z-index: 9997;
+
+        .content {
+            min-height: 100%;
+            min-width: 100%;
+        }
+
+        .content > div {
+            padding: 2em;
+        }
+
+        .canvas-stack canvas {
+            position: absolute;
+        }
+
+        .spacer {
+            flex-grow: 1;
+        }
+
+        #draw-canvas {
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        #img-capture-canvas {
             background-color: red;
-        }  
+        }
     </style>
 </head>
 
 <body>
-    <center>
-        <h1>MobiledgeX Facial Compute Off-load</h1>
-        <button id="myButtonId">Take snapshot</button><BR>
-        <video id="facevideo" playsinline autoplay></video><BR>
-        <!--<div style="position: relative;">
-            <canvas id="layer1" width="100" height="100" 
-                style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
-        </div>-->
-        <canvas id="imgcaplayer"></canvas>
-        <canvas id="drawlayer"></canvas>
-        <form id="myAwesomeForm" method="post" action="/php-code-that-handles-fileupload.php">
-            <input type="text" id="filename" name="filename" /> <!-- Filename -->
-            <input type="submit" id="submitButton" name="submitButton" /> <!-- Submit -->
-        </form>
-        <p id="block"></p>
-        <BR>
-        <BR>
-
-        <a href="https://github.com/skydvr01/HTML5_Edge_Face_onClick"
-        title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
-        <!-------Learnings -----------------------
-
-            Canvas z-index solution: https://stackoverflow.com/questions/13388537/html5-video-ignoring-z-index
-
-
-        -->
-    </center> 
-
-
-<script src="main.js" async></script>
-
+    <div class="container">
+        <div class="content" style="display: flex;">
+            <div id="left-content" style="display: flex; flex-direction: column;">
+                <h1>MobiledgeX Facial Compute Off-load</h1>
+                <button id="btn-snapshot">Take snapshot</button>
+                <form id="myAwesomeForm" method="post" action="/php-code-that-handles-fileupload.php">
+                    <input type="text" id="filename" name="filename" /> <!-- Filename -->
+                    <input type="submit" id="submitButton" name="submitButton" /> <!-- Submit -->
+                </form>
+                <div class="spacer"></div>
+                <a href="https://github.com/skydvr01/HTML5_Edge_Face_onClick" title="View source for this page on GitHub"
+                    id="viewSource" style="align-self: flex-end;">View source on GitHub</a>
+            </div>
+            <div id="right-content" style="display: flex; flex-direction: column;">
+                <video id="facevideo" playsinline autoplay></video>
+                <div class="canvas-stack">
+                    <canvas id="img-capture-canvas"></canvas>
+                    <canvas id="draw-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js" async></script>
 </body>
 </html>

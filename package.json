@@ -1,0 +1,10 @@
+{
+  "name": "HTML_Face",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/skydvr01/HTML_Face.git",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
+  }
+}
