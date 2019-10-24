@@ -36,12 +36,16 @@ function makeRequest(url, method, data=null) {
 waitReady(() => {
     const video = document.querySelector('video');
     const snapshotButton = document.getElementById('btn-snapshot');
+    const canvasContainer = document.getElementById('canvas-container');
     const captureCanvas = document.getElementById('img-capture-canvas');
     const overlayCanvas = document.getElementById('draw-canvas');
 
     snapshotButton.addEventListener('click', (e) => {
         const width = captureCanvas.width = overlayCanvas.width = video.videoWidth;
         const height = captureCanvas.height = overlayCanvas.height = video.videoHeight;
+        canvasContainer.style.width = width.toString() + 'px';
+        canvasContainer.style.height = height.toString() + 'px';
+
         captureCanvas.getContext('2d').drawImage(video, 0, 0, width, height);
         const temp = captureCanvas.toDataURL().replace("data:image/png;base64,", ""); // Verify your base64 data converts correctly to PNG https://onlinepngtools.com/convert-base64-to-png
 

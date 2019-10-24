@@ -35,15 +35,15 @@
             max-width: 1200px;
             height: 100%;
             margin: 0 auto;
-        }
-
-        .content {
-            min-height: 100%;
-            min-width: 100%;
+            overflow-y: scroll;
         }
 
         .content > div {
             padding: 2em;
+        }
+
+        .canvas-stack {
+            position: relative;
         }
 
         .canvas-stack canvas {
@@ -81,7 +81,7 @@
             </div>
             <div id="right-content" style="display: flex; flex-direction: column;">
                 <video id="facevideo" playsinline autoplay></video>
-                <div class="canvas-stack">
+                <div id="canvas-container" class="canvas-stack">
                     <canvas id="img-capture-canvas"></canvas>
                     <canvas id="draw-canvas"></canvas>
                 </div>
