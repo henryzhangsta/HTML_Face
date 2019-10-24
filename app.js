@@ -7,7 +7,7 @@ const port = 8080;
 
 const staticHandler = (filename) => {
     return (req, res) => {
-        res.sendfile(filename, {root: __dirname})
+        res.sendFile(filename, {root: __dirname})
     }
 }
 
