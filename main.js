@@ -51,7 +51,7 @@ waitReady(() => {
         formData.append('height', height);
         formData.append('image', temp);
 
-        makeRequest('http://localhost:8080/facebox/check/', 'POST', formData).then((request) => {
+        makeRequest('/facebox/check/', 'POST', formData).then((request) => {
             const response = request.response;
             console.log(response);
 
